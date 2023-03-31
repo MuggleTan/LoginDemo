@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author TanXY
- * @create 2020/7/10 - 14:33
+ * @since 2020/7/10 - 14:33
  */
 @Controller
 public class LoginController {
@@ -37,12 +37,12 @@ public class LoginController {
     @ResponseBody
     @PostMapping("/toLogin")
     public String login(HttpServletRequest request){
-        String login_name = request.getParameter("loginName");
+        String loginName = request.getParameter("loginName");
         String password = request.getParameter("password");
 
         Subject subject = SecurityUtils.getSubject();
 
-        AuthenticationToken token = new UsernamePasswordToken(login_name,password);
+        AuthenticationToken token = new UsernamePasswordToken(loginName, password);
 
         try {
             subject.login(token);
